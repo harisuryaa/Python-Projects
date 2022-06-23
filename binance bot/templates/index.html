@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+<h1>Hello!</h1>
+<div id = "chart"></div>
+<div id="trades"></div>
+<div id = "my_balances">
+    <h2>Balances</h2>
+    <table>
+        {% for data in my_balances%}
+        {%if '0.0' not in data['free'] %}
+        <tr>
+            <td>
+                {{data['asset']}}
+            </td>
+            <td>
+                {{data['free']}}
+            </td>
+        </tr>
+        {%endif%}
+        {%endfor%}
+    </table>
+</div>
+<h3>Settings</h3>
+
+<div id="settings">
+    <input type="checkbox"/> RSI
+    <input type="text" id="rsi_length" name="rsi_length" placeholder="14"/>
+    <input type="text" id="rsi_oversold" name="rsi_oversold" placeholder="30"/>
+    <input type="text" id="rsi_overbought" name="rsi_overbought" placeholder="70"/>
+
+</div>
+
+<script>
+<!--    var binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade");-->
+
+<!--    var tradeDiv = document.getElementById("trades");-->
+<!--    binanceSocket.onmessage= function(event) {-->
+<!--    console.log(event.data);-->
+<!--    }-->
+
+
+<!--    binanceSocket.onmessage = function(event) {-->
+<!--    console.log(event.data);-->
+
+<!--    var messageObject = JSON.parse(event.data)-->
+<!--    tradeDiv.append(messageObject.p)-->
+<!--    }-->
+</script>
+<script src="static/charts.js"></script>
+</body>
+</html>
